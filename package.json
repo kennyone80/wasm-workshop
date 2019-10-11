@@ -2,7 +2,7 @@
   "name": "wasm-workshop",
   "version": "0.1.0",
   "scripts": {
-    "build": "cd lib && wasm-pack build --target web -- --features wee_alloc",
+    "build": "cd lib && wasm-pack build --target web",
     "test": "cd lib && cargo test && wasm-pack test --headless",
     "live": "live-server --no-browser --port=8000"
   },
