@@ -1,3 +1,5 @@
+import init, { compute } from './lib/pkg/wasm_workshop.js'
+
 const NODES = [0, 1, 2]
 
 /**
@@ -86,4 +88,21 @@ function render (nodes, $) {
  */
 document.addEventListener('DOMContentLoaded', () => {
   loadNodes(NODES, document).then(() => render(NODES, document))
+})
+
+init().then(() => {
+  document.querySelector('#comp_rust').addEventListener('click', () => {
+    const time = document.querySelector('#comp_rust + .time')
+
+    resetState(document._state)
+    time.innerHTML = ""
+
+    setTimeout(() => new Promise((resolve) => {
+      const res = compute(document._state, +document.querySelector('#limit').value)
+      resolve(res)
+    })
+    .then((res) => {
+      time.innerHTML = renderResult(res[0], res[1])
+    }), 50)
+  })
 })
