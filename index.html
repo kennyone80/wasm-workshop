@@ -3,5 +3,25 @@
 <head>
     <meta charset="utf-8">
     <title>WASM Workshop</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
+<body>
+    <ul class="nodes"></ul>
+
+    <ul class="controls">
+        <li>
+            <select id="limit">
+                <option value="1">1</option>
+                <option value="2" selected>2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </li>
+        <li>
+            <button id="comp_rust">Mining w/ WASM</button>
+            <p class="time"></p>
+        </li>
+    </ul>
+</body>
 </html>
